@@ -1,6 +1,9 @@
 import "package:flutter/material.dart";
-import "package:flutter_ecpmmerce_app/widgets/drawer.dart";
-import "package:flutter_ecpmmerce_app/widgets/search_bar.dart";
+import "package:flutter_ecommerce_app/screens/cart_screen.dart";
+import "package:flutter_ecommerce_app/screens/user_profile_screen.dart";
+import "package:flutter_ecommerce_app/widgets/drawer.dart";
+import "package:flutter_ecommerce_app/widgets/product_card.dart";
+import "package:flutter_ecommerce_app/widgets/search_bar.dart";
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -14,8 +17,8 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        iconTheme: const IconThemeData(color: Colors.white),
         backgroundColor: const Color.fromARGB(255, 18, 181, 135),
-        // backgroundColor: Colors.green[500],
         title: Image.asset(
           'lib/images/fetchme.png',
           color: Colors.white,
@@ -24,23 +27,34 @@ class _HomeScreenState extends State<HomeScreen> {
           IconButton(
             icon: const Icon(
               Icons.person,
-              color: Colors.white,
             ),
             onPressed: () {
-              // Handle search action
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => const UserProfileScreen()),
+              );
             },
           ),
           IconButton(
-            icon: const Icon(Icons.shopping_cart, color: Colors.white),
+            icon: const Icon(
+              Icons.shopping_cart,
+            ),
             onPressed: () {
-              // Handle shopping cart action
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const CartScreen()),
+              );
             },
           ),
         ],
       ),
       drawer: const MyDrawer(),
       body: const Column(
-        children: [MySearchBar()],
+        children: [
+          MySearchBar(),
+          ProductCard(),
+        ],
       ),
     );
   }

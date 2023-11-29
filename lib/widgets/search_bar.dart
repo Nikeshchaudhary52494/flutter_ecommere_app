@@ -14,7 +14,7 @@ class _MySearchBarState extends State<MySearchBar> {
       height: 50,
       margin: const EdgeInsets.only(top: 20, left: 10, right: 10, bottom: 20),
       decoration: BoxDecoration(
-          border: Border.all(color: Colors.grey, width: 2),
+          border: Border.all(color: Colors.grey, width: 0.5),
           borderRadius: BorderRadius.circular(50)),
       child: const Row(
         children: [
