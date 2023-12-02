@@ -1,9 +1,11 @@
 import "package:flutter/material.dart";
+import "package:flutter_ecommerce_app/models/cart_model.dart";
 import "package:flutter_ecommerce_app/screens/cart_screen.dart";
 import "package:flutter_ecommerce_app/screens/user_profile_screen.dart";
 import "package:flutter_ecommerce_app/widgets/drawer.dart";
 import "package:flutter_ecommerce_app/widgets/product_card.dart";
 import "package:flutter_ecommerce_app/widgets/search_bar.dart";
+import "package:provider/provider.dart";
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -50,10 +52,25 @@ class _HomeScreenState extends State<HomeScreen> {
         ],
       ),
       drawer: const MyDrawer(),
-      body: const Column(
+      body: Column(
         children: [
-          MySearchBar(),
-          ProductCard(),
+          const MySearchBar(),
+          Expanded(
+            child: Consumer<CartModel>(builder: (context, value, child) {
+              return ListView.builder(
+                  itemCount: value.shopItems.length,
+                  itemBuilder: (context, index) {
+                    return ProductCard(
+                      name: value.shopItems[index][0],
+                      itemPrice: value.shopItems[index][1],
+                      imagePath: value.shopItems[index][2],
+                      onPressed: () =>
+                          Provider.of<CartModel>(context, listen: false)
+                              .addItemToCart(index),
+                    );
+                  });
+            }),
+          ),
         ],
       ),
     );

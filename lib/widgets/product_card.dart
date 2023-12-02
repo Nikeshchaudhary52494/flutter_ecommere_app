@@ -1,7 +1,16 @@
 import "package:flutter/material.dart";
 
 class ProductCard extends StatelessWidget {
-  const ProductCard({super.key});
+  final String name;
+  final String itemPrice;
+  final String imagePath;
+  void Function()? onPressed;
+  ProductCard(
+      {super.key,
+      required this.name,
+      required this.itemPrice,
+      required this.imagePath,
+      required this.onPressed});
 
   @override
   Widget build(BuildContext context) {
@@ -24,24 +33,24 @@ class ProductCard extends StatelessWidget {
       child: Column(
         children: [
           Image.network(
-            "https://m.media-amazon.com/images/I/61lKQWyMdDL._SX679_.jpg",
+            imagePath,
             width: 300,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const Column(
+              Column(
                 children: [
                   Text(
-                    'Iphone 14',
-                    style: TextStyle(
+                    name,
+                    style: const TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 20,
                     ),
                   ),
                   Text(
-                    "\$200",
-                    style: TextStyle(
+                    "\$$itemPrice",
+                    style: const TextStyle(
                         color: Colors.orange,
                         fontWeight: FontWeight.bold,
                         fontSize: 30),
@@ -54,9 +63,7 @@ class ProductCard extends StatelessWidget {
                   color: Colors.blue, // Set the background color here
                 ),
                 child: IconButton(
-                  onPressed: () {
-                    // Add your onPressed logic here
-                  },
+                  onPressed: onPressed,
                   icon: const Icon(
                     Icons.add,
                     color: Colors.white, // Set the icon color here
