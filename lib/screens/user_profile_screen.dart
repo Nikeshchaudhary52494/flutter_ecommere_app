@@ -37,15 +37,30 @@ class UserProfileScreen extends StatelessWidget {
               const Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text("Name :"),
-                  Text("Nikesh chaudhary"),
+                  Text(
+                    "Name :",
+                    style: TextStyle(fontSize: 20, color: Colors.green),
+                  ),
+                  Text(
+                    "Nikesh chaudhary",
+                    style: TextStyle(fontSize: 20),
+                  ),
                 ],
+              ),
+              const SizedBox(
+                height: 10,
               ),
               const Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text("Email :"),
-                  Text("nikesh@gmail.com"),
+                  Text(
+                    "Email :",
+                    style: TextStyle(fontSize: 20, color: Colors.green),
+                  ),
+                  Text(
+                    "nikesh@gmail.com",
+                    style: TextStyle(fontSize: 20),
+                  ),
                 ],
               )
             ],

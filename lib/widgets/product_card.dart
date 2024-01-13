@@ -4,8 +4,8 @@ class ProductCard extends StatelessWidget {
   final String name;
   final String itemPrice;
   final String imagePath;
-  void Function()? onPressed;
-  ProductCard(
+  final void Function()? onPressed;
+  const ProductCard(
       {super.key,
       required this.name,
       required this.itemPrice,

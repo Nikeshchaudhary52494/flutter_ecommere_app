@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ecommerce_app/models/cart_model.dart';
-// import 'package:flutter_ecommerce_app/widgets/cart_item.dart';
 import 'package:provider/provider.dart';
 
 class CartScreen extends StatefulWidget {
@@ -33,7 +32,6 @@ class _CartScreenState extends State<CartScreen> {
                             borderRadius: BorderRadius.circular(10)),
                         child: ListTile(
                           title: Text(value.cartItems[index][0]),
-                          // leading: value.cartItems[index][2],
                           leading: Image.network(
                             value.cartItems[index][2],
                             width: 100,
@@ -49,6 +47,47 @@ class _CartScreenState extends State<CartScreen> {
                       ),
                     );
                   },
+                ),
+              ),
+              Container(
+                margin: EdgeInsets.all(10),
+                padding: EdgeInsets.symmetric(vertical: 20, horizontal: 10),
+                decoration: BoxDecoration(
+                    color: Colors.grey[300],
+                    borderRadius: BorderRadius.circular(5)),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Column(
+                      children: [
+                        Text(
+                          "Total price:",
+                          style: TextStyle(fontSize: 20),
+                        ),
+                        Text(
+                          "\$100",
+                          style: TextStyle(
+                              color: Colors.orange,
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold),
+                        )
+                      ],
+                    ),
+                    InkWell(
+                      onTap: () {},
+                      child: Container(
+                        padding:
+                            EdgeInsets.symmetric(vertical: 20, horizontal: 30),
+                        decoration: BoxDecoration(
+                            color: Colors.green,
+                            borderRadius: BorderRadius.circular(5)),
+                        child: Text(
+                          "Pay Now",
+                          style: TextStyle(color: Colors.white),
+                        ),
+                      ),
+                    )
+                  ],
                 ),
               )
             ],

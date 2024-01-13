@@ -9,9 +9,9 @@ class CartModel extends ChangeNotifier {
       'https://www.jiomart.com/images/product/original/493177749/apple-iphone-14-128-gb-midnight-digital-o493177749-p593687924-0-202306291917.jpeg?im=Resize=(1000,1000)'
     ],
     [
-      "T shirt",
-      "10",
-      'https://www.collinsdictionary.com/images/thumb/tshirt_204029461_250.jpg?version=5.0.34'
+      "S 20",
+      "499",
+      'https://5.imimg.com/data5/SELLER/Default/2023/6/319962441/PY/DM/FH/4924047/samsung-galaxy-s20-fe-5g-cloud-lavender-128-gb-8-gb-ram--1000x1000.jpg'
     ],
     [
       "mac bookAir",

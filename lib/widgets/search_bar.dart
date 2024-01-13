@@ -1,3 +1,5 @@
+import "dart:ffi";
+
 import "package:flutter/material.dart";
 
 class MySearchBar extends StatefulWidget {
@@ -16,20 +18,23 @@ class _MySearchBarState extends State<MySearchBar> {
       decoration: BoxDecoration(
           border: Border.all(color: Colors.grey, width: 0.5),
           borderRadius: BorderRadius.circular(50)),
-      child: const Row(
+      child: Row(
         children: [
-          SizedBox(width: 8.0),
+          const SizedBox(width: 8.0),
           Expanded(
-            child: TextField(
-              decoration: InputDecoration(
-                hintText: 'Search...',
-                border: InputBorder.none,
+            child: Container(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: const TextField(
+                decoration: InputDecoration(
+                  hintText: 'Search...',
+                  border: InputBorder.none,
+                ),
               ),
             ),
           ),
-          SizedBox(width: 8.0),
-          Icon(Icons.search),
-          SizedBox(width: 8.0),
+          const SizedBox(width: 8.0),
+          IconButton(onPressed: () {}, icon: const Icon(Icons.camera_alt)),
+          const SizedBox(width: 8.0),
         ],
       ),
     );
